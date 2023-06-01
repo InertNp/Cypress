@@ -18,7 +18,7 @@ describe("login test", () => {
     it("should submit the form successfully", () => {
         // Fill in all required fields
         cy.get('#consultantType > :nth-child(1) > .ant-radio > .ant-radio-input').click();
-        //to upload
+    //     //to upload
         cy.get('.ant-col-lg-6 > .ant-form-item > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > #MyUploadWrapper > .ant-upload-wrapper > .ant-upload-select > .ant-upload').find("input").selectFile("C:/sth/logocat.jpg" ,{force:true});
         cy.get('.ant-col-lg-10 > .ant-form-item > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > #MyUploadWrapper > .ant-upload-wrapper > .ant-upload-select > .ant-upload').find("input").selectFile("C:/sth/logocat.jpg" ,{force:true});
         cy.get(':nth-child(6) > :nth-child(3) > .ant-form-item > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content').find("input").selectFile("C:/sth/logocat.jpg" ,{force:true});
@@ -36,7 +36,6 @@ describe("login test", () => {
        cy.get('#panNo').type("ABCDE1234F");
        cy.get('#NEC').type("12345678");
        cy.get('#cNo').type("12345678")
-
        cy.get('#cIDistrict').type("kath");
        cy.get('#cIDistrict').click();
        cy.get(".ant-select-item-option-content").contains('Kathmandu').click();
@@ -47,17 +46,14 @@ describe("login test", () => {
        cy.get('#fatherEng').type("John do")
        cy.get('#gfNep').type("जोन ड");
        cy.get('#gfName').type("John da")
-
+        //permanent address
        cy.get('#provinceIdPerma').click();
-       cy.get(".ant-cascader-menu-item-content").contains("Bagmati").click();
-       
+       cy.get(".permaState").find(".ant-cascader-menu-item-content").contains("Bagmati").click();
        cy.get('#districtIdPerma').click();
-       cy.get(".ant-cascader-menu-item-content").contains("Lalitpur").click();
+       cy.get(".permaDistrict ").find(".ant-cascader-menu-item-content").contains("Lalitpur").click();
        cy.get('#municipalityIdPerma').click();
-       cy.get(".ant-cascader-menu-item-content").contains("Lalitpur Metropolitian").click();
-       cy.get('#wardIdPerma').type(1);
-       cy.get('#wardIdPerma').click()
-       cy.get(".ant-cascader-menu-item-content").contains(1).click();
+       cy.get(".permaMunicipality").find(".ant-cascader-menu-item-content").contains("Lalitpur Metropolitian").click();
+      
        cy.get('#toleEngPerma').type("John doe");    
        cy.get('#toleNepPerma').type("जोन डो");
        cy.get('.ant-switch-inner').click();
@@ -72,17 +68,20 @@ describe("login test", () => {
        cy.get('#pan').type("123123")
       
        cy.get('#orgState').click();
-       cy.get(' .ant-cascader-menu-item-content').contains("Lumbini").click();
+       cy.get('.orgStateList').find(".ant-cascader-menu-item-content").contains("Lumbini").click();
        cy.get('#orgDistrict').click();
-       cy.get(".ant-cascader-menu-item-content").contains("Rupandehi").click();
+       cy.get(".orgDistrictList").find(".ant-cascader-menu-item-content").contains("Rupandehi").click();
        cy.get('#orgMunicipality').click()
-       cy.get(" .ant-cascader-menu-item-content").contains("Devadaha").click();
+       cy.get(".orgMunicipalityList").find(".ant-cascader-menu-item-content").contains("Devadaha").click();
        cy.get('#orgWard').type(1);
-       cy.get('#orgWard').click()
-       cy.get(".ant-cascader-menu-item-content").contains(1).click();
+       cy.get('#orgWard').click();   
+       cy.get(".orgWardList").find(".ant-cascader-menu-item-content").contains(1).click();
        cy.get('#orgToleEng').type("John doe");    
        cy.get('#orgToleNep').type("जोन डो");
-  
+       //permanent address ward
+       cy.get('#wardIdPerma').type(1);
+       cy.get('#wardIdPerma').click()
+       cy.get(".permaWard").find(".ant-cascader-menu-item-content").contains(1).click();
 
 
        cy.get('.paddingLeft50 > .ant-form-item > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-btn').click();
